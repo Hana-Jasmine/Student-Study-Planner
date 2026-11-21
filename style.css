@@ -1,0 +1,660 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #F5F4EA;
+    color: #344238;
+    line-height: 1.6;
+}
+
+header {
+    background: #789477;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 15px;
+}
+
+main {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+section {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 22px;
+    box-shadow: 0 5px 18px rgba(60, 80, 60, 0.07);
+}
+
+h2 {
+    color: #526E55;
+    margin-bottom: 12px;
+}
+
+.welcome {
+    background: #E3ECDD;
+}
+
+.welcome p {
+    color: #68766B;
+}
+
+.progress-card {
+    background: #FFFFFF;
+}
+
+#progress-text {
+    color: #526E55;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 13px;
+    background: #E4EAE0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #789477;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #D5E0D2;
+    border-radius: 9px;
+    font-size: 14px;
+    background: #FAFBF7;
+    color: #344238;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #A3B99A;
+}
+
+button {
+    background: #526E55;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #3E5842;
+    transform: translateY(-2px);
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #F0F4ED;
+    border-left: 4px solid #789477;
+    padding: 14px;
+    border-radius: 9px;
+    margin-top: 12px;
+}
+
+.task-info {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.task-info h3 {
+    color: #344238;
+    font-size: 16px;
+}
+
+.task-info p {
+    color: #68766B;
+    font-size: 13px;
+}
+
+.task-item.completed .task-info h3 {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.task-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.task-actions button {
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.delete-btn {
+    background: #B56C65;
+}
+
+.delete-btn:hover {
+    background: #914E48;
+}
+
+.empty-message {
+    text-align: center;
+    color: #879487;
+    padding: 20px;
+}
+
+footer {
+    background: #526E55;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 27px;
+    }
+
+    main {
+        margin: 22px auto;
+    }
+
+    section {
+        padding: 19px;
+    }
+
+    .task-item {
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        flex-direction: column;
+    }
+}
+/* Dashboard Statistics */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.stat-card {
+    background: #E3ECDD;
+    padding: 22px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #D5E0D2;
+}
+
+.stat-card h3 {
+    color: #526E55;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    color: #344238;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@media (max-width: 400px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+/* Task Priority Colors */
+
+.priority-high {
+    color: #D9534F !important;
+    font-weight: bold;
+}
+
+.priority-medium {
+    color: #D69E36 !important;
+    font-weight: bold;
+}
+
+.priority-low {
+    color: #4F8A60 !important;
+    font-weight: bold;
+}
+.task-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#clear-all {
+    background: #B56C65;
+}
+
+#clear-all:hover {
+    background: #914E48;
+}
+.overdue {
+    color: #D9534F !important;
+    font-weight: bold;
+}
+
+.due-today {
+    color: #D69E36 !important;
+    font-weight: bold;
+}
+
+.upcoming {
+    color: #4F8A60 !important;
+    font-weight: bold;
+}
+/* ===== FINAL UI POLISHING ===== */
+
+/* Task Cards */
+.task-item {
+    background: #ffffff;
+    border: 1px solid #e3e9df;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(52, 66, 56, 0.06);
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 66, 56, 0.12);
+}
+
+/* Task Information */
+.task-info h3 {
+    color: #344238;
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+.task-info p {
+    margin: 6px 0;
+    color: #68776a;
+    font-size: 14px;
+}
+
+/* Task Buttons */
+.task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.task-actions button {
+    border: none;
+    border-radius: 8px;
+    padding: 9px 13px;
+    cursor: pointer;
+    background: #e8eee4;
+    color: #344238;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.task-actions button:hover {
+    background: #789477;
+    color: white;
+}
+
+.task-actions .delete-btn {
+    background: #f8e5e2;
+    color: #a33e35;
+}
+
+.task-actions .delete-btn:hover {
+    background: #c85b50;
+    color: white;
+}
+
+/* Completed Task */
+.task-item.completed {
+    background: #f1f5ef;
+    opacity: 0.8;
+}
+
+.task-item.completed .task-info h3 {
+    text-decoration: line-through;
+    color: #879187;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        width: 100%;
+    }
+
+    .task-actions button {
+        flex: 1;
+    }
+}
+/* ===== DASHBOARD FINAL DESIGN ===== */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 24px 18px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #e3e9df;
+    box-shadow: 0 4px 12px rgba(52, 66, 56, 0.06);
+    transition: 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(52, 66, 56, 0.12);
+}
+
+.stat-card h3 {
+    color: #657b65;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.stat-card p {
+    color: #344238;
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* PROGRESS CARD */
+
+.progress-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e3e9df;
+    box-shadow: 0 4px 12px rgba(52, 66, 56, 0.06);
+    margin-bottom: 25px;
+}
+
+#progress-text {
+    color: #526b53;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+#progress-fill {
+    background: #789477;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* MOBILE DASHBOARD */
+
+@media (max-width: 600px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .progress-card {
+        padding: 20px;
+    }
+}
+/* ===== INPUT FIELDS POLISHING ===== */
+
+input,
+select,
+textarea {
+    border: 1px solid #d5dfd2;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #ffffff;
+    color: #344238;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #789477;
+    box-shadow: 0 0 0 3px rgba(120, 148, 119, 0.15);
+}
+
+/* PLACEHOLDER */
+
+input::placeholder {
+    color: #9aa69a;
+}
+
+/* ADD TASK BUTTON */
+
+#add-task {
+    background: #789477;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#add-task:hover {
+    background: #5f795e;
+    transform: translateY(-2px);
+}
+
+/* CLEAR ALL BUTTON */
+
+#clear-all {
+    background: #f8e5e2;
+    color: #a33e35;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#clear-all:hover {
+    background: #c85b50;
+    color: white;
+}
+
+/* SEARCH AND FILTER */
+
+#search-input,
+#filter-input {
+    min-width: 150px;
+}
+
+/* MOBILE INPUTS */
+
+@media (max-width: 600px) {
+    input,
+    select,
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #add-task,
+    #clear-all {
+        width: 100%;
+    }
+}
+/* ===== HEADER FINAL DESIGN ===== */
+
+header {
+    background: linear-gradient(135deg, #789477, #526f55);
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+    border-radius: 0 0 22px 22px;
+    box-shadow: 0 5px 15px rgba(52, 66, 56, 0.12);
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    font-size: 15px;
+    opacity: 0.95;
+}
+
+/* ===== WELCOME SECTION ===== */
+
+.welcome {
+    text-align: center;
+    padding: 30px 15px 20px;
+}
+
+.welcome h2 {
+    color: #344238;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    color: #718071;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ===== SECTION HEADINGS ===== */
+
+section h2 {
+    color: #344238;
+    margin-bottom: 18px;
+}
+
+/* ===== RESPONSIVE HEADER ===== */
+
+@media (max-width: 600px) {
+    header {
+        padding: 28px 15px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .welcome h2 {
+        font-size: 21px;
+    }
+}
+/* ===== STEP 20: FOOTER DESIGN ===== */
+
+footer {
+    background: #e8eee4;
+    color: #526b53;
+    text-align: center;
+    padding: 22px 15px;
+    margin-top: 35px;
+    border-top: 1px solid #d5dfd2;
+    border-radius: 15px 15px 0 0;
+}
+
+footer p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+/* ===== OVERALL SPACING ===== */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 25px auto;
+}
+
+section {
+    margin-bottom: 25px;
+}
+
+/* ===== SMOOTH PAGE SCROLL ===== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== SMALL SCREEN SPACING ===== */
+
+@media (max-width: 600px) {
+    main {
+        width: 92%;
+        margin: 18px auto;
+    }
+
+    section {
+        margin-bottom: 18px;
+    }
+
+    footer {
+        margin-top: 25px;
+        padding: 18px 12px;
+    }
+}
