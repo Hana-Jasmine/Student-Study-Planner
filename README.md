@@ -59,4 +59,4 @@ Developed as a personal web development project.
 ![Study Planner Dashboard](screenshot-top.png)
 
 # Task Management
-![Study Planner Tasks](screenshot-tasks.png)
+![Study Planner Tasks](Screenshot-tasks.png)
